@@ -2,27 +2,37 @@ import pyautogui
 import cv2
 import numpy as np
 
-# Example dot positions
-points = [
-    (794, 965), 
-    (965, 759),
-    (964, 611),
-    (1140, 788),
-    (792, 790),
-    (1139, 616),
-    (791, 613),
-    (1141, 962)
-    ]
+topleft = (515, 335)
+bottomright = (863, 684)
+
+
+
+points = []
+
+
+ratiox = (60)/116
+ratioy = (68)/116
+
+distance = bottomright[0] - topleft[0]
+
+serpatedistance = distance // 3
+print(serpatedistance)
+for i in range(3):
+    for r in range(3):
+        points.append((topleft[0] + serpatedistance * i, topleft[1] + serpatedistance * r))
+
+
 
 img = pyautogui.screenshot()
 img = np.array(img)
 img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
 
 for x, y in points:
+    x, y = int(x+ratiox*serpatedistance),int(y+ratioy*serpatedistance)
     # draw dot
     cv2.circle(img, (x, y), 4, (0, 0, 255), -1)
 
-    # d raw coordinate text
+    # draw coordinate text
     text = f"({x}, {y})"
     cv2.putText(
         img,
@@ -35,6 +45,6 @@ for x, y in points:
         cv2.LINE_AA
     )
 
-cv2.imshow("Dots", img)
+cv2.imshow("Dots with Coordinates", img)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
