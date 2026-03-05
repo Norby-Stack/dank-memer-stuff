@@ -1,0 +1,16 @@
+import time
+import pyautogui
+while True:
+    pyautogui.write("/hun", interval=0.05)
+
+    pyautogui.press("enter")
+    pyautogui.press("enter")
+    pyautogui.write("/di", interval=0.05)
+
+    pyautogui.press("enter")
+    pyautogui.press("enter")
+
+    pyautogui.write("/", interval=0.05)
+
+    pyautogui.press("enter")
+    pyautogui.press("enter")

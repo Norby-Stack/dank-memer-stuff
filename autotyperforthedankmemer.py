@@ -10,10 +10,18 @@ def is_color_similar(pixel, target, tolerance=5):
         abs(b - tb) <= tolerance
     )
 
+def pointmaker(topleft,bottomright):
+    points = []
+    for i in range(topleft[0], bottomright[0], bottomright[0]-topleft[0]// 3):
+        for j in range(topleft[1], bottomright[1], bottomright[1]// 3):
+            points.append((i,j))
+    return points
 
-cords = []
 
 
+cords = pointmaker((791, 611), (1141, 962))
+
+print(cords)
 times = 0
 time.sleep(2)
 
