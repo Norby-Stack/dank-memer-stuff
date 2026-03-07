@@ -10,17 +10,23 @@ def is_color_similar(pixel, target, tolerance=5):
         abs(b - tb) <= tolerance
     )
 
+
 def pointmaker(topleft,bottomright):
     points = []
-    for i in range(topleft[0], bottomright[0], bottomright[0]-topleft[0]// 3):
-        for j in range(topleft[1], bottomright[1], bottomright[1]// 3):
-            points.append((i,j))
+    count = 0 
+    dif = ((bottomright[0]-topleft[0])//2, (bottomright[1]-topleft[1])//2)
+    for i in range(topleft[0], bottomright[0]+1, dif[0]):
+        for j in range(topleft[1], bottomright[1]+1, dif[1]):
+            if count != 8:
+                count +=1
+                points.append((i,j))
     return points
 
 
 
 cords = pointmaker((791, 611), (1141, 962))
 
+print(cords)
 print(cords)
 times = 0
 time.sleep(2)
@@ -37,7 +43,7 @@ while True:
     pyautogui.press("enter")
     time.sleep(2)
 
-    pyautogui.click(1033,1310)
+    pyautogui.click(1081,1404)
    
         
     # check if we are fishing
