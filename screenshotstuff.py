@@ -2,9 +2,10 @@ import pyautogui
 import cv2
 import numpy as np
 import time
+from hehe import cords
 time.sleep(2)  # Give user time to switch to desired screen
 # Example dot positions
-points = [(791, 611), (791, 786), (791, 961), (966, 611), (966, 786), (966, 961), (1141, 611), (1141, 786), (1141, 961)]
+points = cords
 
 img = pyautogui.screenshot()
 img = np.array(img)
