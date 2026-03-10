@@ -31,9 +31,21 @@ print(cords)
 print(clickcord)
 times = 0
 time.sleep(2)
-type = 0
+type = 150
 while True:
-    
+    if type % 150 == 0:
+        pyautogui.write("/")
+
+        pyautogui.write("fish bu", interval=0.05)
+
+        pyautogui.press("enter")
+        time.sleep(0.5)
+        pyautogui.press("enter")
+        time.sleep(2)
+        pyautogui.click(941,1338) # bucket sell system
+        time.sleep(2)
+        pyautogui.click(1208,1308)
+        time.sleep(2)
    
     pyautogui.write("/")
 
@@ -121,6 +133,7 @@ while True:
         time.sleep(1.5)
         pyautogui.click(934,1378)
         time.sleep(0.5)
+        pyautogui.click(714,1362)
         # must wait 2 second for all of them 
     elif type % 6 == 3:
         pyautogui.click(742,1358)
